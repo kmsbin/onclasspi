@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>OnClass</title>
+    <link rel="stylesheet" href="/css/sala_professor.css">
+    <link rel="stylesheet" href="/css/all.css">
+</head>
+<body>
+    <header class="top">
+        <input type="image" src="/assets/images/logo.svg">
+        <h1>SALA DE P.I.</h1>
+        <a href="/">
+            <input class="logout" type="image" src="/assets/images/logout.svg">
+        </a>
+    </header>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Criar prova</h1>
+                <div class="questoes">
+                    <div class="qtdquestoes">
+                        <div class="questao"></div>
+                        <div class="questao"></div>
+                        <div class="questao"></div>
+                        <div class="questao"></div>
+                    </div>
+                    <button class="add">Add</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="pergunta">
+                    <textarea id="pergunta" cols="45" rows="10" placeholder="Digite aqui a pergunta"></textarea>
+                    <div class="tipo">
+                        <button id="openmenu">Tipo da pergunta</button>
+                        <div class="dropdown">
+                            <input type="button" value="Alternativas">
+                            <input type="button" value="Texto">                    
+                        </div>
+                    </div>
+                </div>
+                <div class="alternativa">
+                    <input type="checkbox" disabled="disabled">
+                    <input type="text" placeholder="Digite a alternativa" class="insertalter">
+                </div>
+                <div class="alternativa">
+                    <input type="checkbox" disabled="disabled">
+                    <input type="text" placeholder="Digite a alternativa" class="insertalter">
+                </div>
+                <div class="alternativa">
+                    <input type="checkbox" disabled="disabled">
+                    <input type="text" placeholder="Digite a alternativa" class="insertalter">
+                </div>
+                <div class="alternativa">
+                    <input type="checkbox" disabled="disabled">
+                    <input type="text" placeholder="Digite a alternativa" class="insertalter">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input class="create" type="button" value="Criar">
+                <input class="close" type="button" value="Cancelar">
+            </div>
+        </div>
+      
+      </div>
+    <main>
+        <div class="buttons">
+            <a href="/video">
+                <input id="video" type="button" >
+            </a>
+            <input id="prova" type="button">
+        </div>
+        <div class="sala">
+            <div class="materiais">
+                <div class="Video">
+                    <div class="nome">
+                        Video aula sobre como fazer um documento
+                    </div>
+                    <div class="tempo">
+                        1:54:02
+                    </div>
+                </div>
+                <div class="Video">
+                    <div class="nome">
+                        Video aula sobre como fazer um documento
+                    </div>
+                    <div class="tempo">
+                        1:54:02
+                    </div>
+                </div>
+                <div class="Video">
+                    <div class="nome">
+                        Video aula sobre como fazer um html basico com css php e javascript
+                    </div>
+                    <div class="tempo">
+                        1:54:02
+                    </div>
+                </div>
+                <div class="Video">
+                    <div class="nome">
+                        Video aula sobre como fazer um html basico com css php e javascript
+                    </div>
+                    <div class="tempo">
+                        1:54:02
+                    </div>
+                </div>
+            </div>
+            <div class="linha"></div>
+            <div class="Listaprovas">
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+                <div class="prova">
+                    <div class="nome">
+                        HTML conhecimentos básicos
+                    </div>
+                    <div class="data">
+                        13/12/2020
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bottom">
+        <p class="text"> Criado por Matheus Simão Schmidt</p>
+    </footer>
+</body>
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("prova");
+
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        modal.style.display = "flex";
+        }
+    span.onclick = function() {
+        modal.style.display = "none";
+        }
+</script>
+</html>

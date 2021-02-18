@@ -1,0 +1,63 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.top {
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 8%;
+    width: 100%;
+    background: #376E36;
+    box-sizing: border-box;
+}
+main {
+    height: 85%;
+    width: 100%;
+    background: #c8c8c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.bottom {
+    display: flex;
+    align-items: center;
+    height: 7%;
+    width: 100%;
+    background: #ECE6E6;
+}
+.text{
+    color: #626262;
+    margin-left: 20px;
+}
+.logout{
+    width: 4vw;
+    height: 4vh;
+}
+input{
+    transition: .2s;
+}
+input:hover{
+    transform: scale(1.1);
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}

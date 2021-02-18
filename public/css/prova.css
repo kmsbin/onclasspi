@@ -1,0 +1,50 @@
+.prova{
+    width: 60%;
+    height: 70%;
+    background: #BEBEBE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.questao{
+    padding: 10px;
+    margin: 10px;
+    width: 70%;
+    background: #b5b5b5;
+    display: flex;
+    flex-direction: column;
+
+}
+.alternativas{
+    display: flex;
+    flex-direction: column;
+}
+.alternativa{
+    margin:10px;
+    display: flex;
+    align-items: center;
+}
+.finish{
+    position: fixed;
+    top: 50%;
+    left: 2%;
+    border: none;
+    background: #376E36;
+    color: #ffffff;
+    width: 3vw;
+    height: 3vh;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.resposta textarea{
+    background: #BEBEBE;
+    border: none;
+    resize: none;
+    width: 100%;
+    height: 10vh;
+}
+main{
+    box-sizing: border-box;
+}

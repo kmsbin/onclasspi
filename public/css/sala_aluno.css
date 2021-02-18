@@ -1,0 +1,63 @@
+:-webkit-scrollbar-track{
+	background-color: #BEBEBE;
+}
+
+::-webkit-scrollbar{
+	width: 7px;
+	background-color: #BEBEBE;
+}
+
+::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	background-color: #808080;
+}
+.sala { 
+    width: 85%;
+    height: 95%;
+    background: #BEBEBE;
+    display: flex;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3%;
+    color: #6d6d6d;
+    font-weight: bold;
+    overflow: auto;
+}
+.materiais{
+    border-right: 3px solid #4d4d4d;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.Video{
+    display: flex;
+    margin-bottom: 2%;
+    align-items: center;
+}
+.tempo{
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: 3%;
+}
+.data{
+    margin-left: auto;
+    color: #ffffff;
+}
+.prova{
+    align-items: center;
+    margin-bottom: 2%;
+    display: flex;
+}
+.Listaprovas{
+    padding-left: 3%;
+    width: 50%;
+    height: auto;
+    box-sizing: border-box;
+}
+h1 {
+    font-weight: 500;
+    color: #ffffff;
+    cursor: default;
+}

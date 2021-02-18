@@ -1,0 +1,173 @@
+main {
+    flex-direction: column;
+    overflow: auto;
+    position: relative;
+    padding: 0 0 2% 0;
+}
+
+
+/* ::-webkit-scrollbar {
+    width: 0px;
+} */
+
+::-webkit-scrollbar-track {
+    background-color: #c8c8c8;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: #c8c8c8;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #808080;
+}
+
+.listaSalas {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: absolute;
+    top: 0;
+    width: 85%;
+    height: auto;
+    background: #BEBEBE;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    padding: 0 5% 5% 0;
+}
+
+header>h1 {
+    font-weight: 500;
+    color: #ffffff;
+    cursor: default;
+}
+
+.go {
+    background-image: url(/assets/images/salas.jpg);
+    background-position: 50px 0px;
+    width: 300px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 0 0 5px;
+    justify-content: center;
+    box-sizing: border-box;
+    border: none;
+}
+
+.nome {
+    font-size: 35px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.professor {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.sala {
+    width: 300px;
+    height: 100px;
+    margin: 5% 0 0 5%;
+    box-shadow: 0 -3px 30px rgba(0, 0, 0, 0.497);
+    box-sizing: border-box;
+}
+
+.button {
+    position: fixed;
+    top: 45%;
+    left: 93%;
+}
+
+.button input {
+    cursor: pointer;
+    border: none;
+    margin: 1em;
+    border-radius: 50%;
+    height: 4em;
+    width: 4em;
+    background: #376E36;
+}
+
+#sala {
+    background-image: url(/assets/images/mais.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 4em;
+}
+
+.modal-content {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #c8c8c8;
+    box-shadow: 1px 5px 5px 5px rgba(0, 0, 0, 0.4);
+    margin: auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    height: 25rem;
+    width: 35rem;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-header {
+    color: #376E36;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-body input {
+    background: #d1d1d1;
+    color: #626262;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px solid #376E36;
+    width: 70%;
+    font-size: 15px;
+    height: 3em;
+    margin-bottom: 3em;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.close,
+.create {
+    border-radius: 5px;
+    border: none;
+    color: #ffffff;
+    background: #376E36;
+    padding: 0;
+    height: 50%;
+    width: 20%;
+    margin: 10px;
+}
+
+.close:hover,
+.create:hover,
+.close:focus,
+.create:focus {
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
