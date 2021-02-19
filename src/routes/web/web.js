@@ -79,7 +79,11 @@ app.get('/video-stream/', (req, res) => {
   app.get('/video-stream/:room', (req, res) => {
     res.render('video', { roomId: req.params.room })
   })
-
+//   var ps = new PeerServer({
+//     path: '/peer/',
+//     port: 3000,
+  
+// });
 
 
 

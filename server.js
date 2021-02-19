@@ -7,6 +7,7 @@ const app = express();
 const db = require('./src/database/database');
 const routes = require('./src/routes/routes');
 const { v4: uuidV4 } = require('uuid')
+var cors = require('cors')
 var http = require('http');
 var serv = http.createServer(app)
 var io  = require('socket.io')(http).listen(serv);
@@ -22,9 +23,13 @@ app.use(bodyParser.raw());
 app.use(bodyParser.text());
 app.set('view engine', 'html');
 app.set('X-Content-Type-Options', 'nosniff')
-
+app.use(cors())
 app.use('/', routes);
-
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+  });
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {
       socket.join(roomId)

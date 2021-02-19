@@ -1,9 +1,7 @@
 const socket = io('/')
+var a_random_id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
 const videoGrid = document.getElementById('video-grid')
-const myPeer = new Peer(undefined, {
-  host: '/',
-  port: '3001'
-})
+const myPeer = new Peer()
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
