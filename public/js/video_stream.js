@@ -3,32 +3,40 @@ var a_random_id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 1
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer({
   config: {'iceServers': [
-    { url: 'stun:stun.l.google.com:19302' },
-
-{url: "stun.12connect.com:3478"},
-{url: "stun.12voip.com:3478"},
-{url: "stun.1und1.de:3478"},
-{url: "stun.2talk.co.nz:3478"},
-{url: "stun.2talk.com:3478"},
-{url: "stun.3clogic.com:3478"},
-{url: "stun.3cx.com:3478"},
-{url: "stun.a-mm.tv:3478"},
-{url: "stun.aa.net.uk:3478"},
-{url: "stun.acrobits.cz:3478"},
-{url: "stun.actionvoip.com:3478"},
-{url: "stun.advfn.com:3478"},
-{url: "stun.aeta-audio.com:3478"},
-{url: "stun.aeta.com:3478"},
-{url: "stun.alltel.com.au:3478"},
-{url: "stun.altar.com.pl:3478"},
-{url: "stun.annatel.net:3478"},
-{url: "stun.antisip.com:3478"},
-{url: "stun.arbuz.ru:3478"},
-{url: "stun.avigora.com:3478"},
-{url: "stun.avigora.fr:3478"},
-{url: "stun.awa-shima.com:3478"},
-{url: "stun.awt.be:3478"},
-{url: "stun.b2b2c.ca:3478"},
+    {url:'stun:stun01.sipphone.com'},
+    {url:'stun:stun.ekiga.net'},
+    {url:'stun:stun.fwdnet.net'},
+    {url:'stun:stun.ideasip.com'},
+    {url:'stun:stun.iptel.org'},
+    {url:'stun:stun.rixtelecom.se'},
+    {url:'stun:stun.schlund.de'},
+    {url:'stun:stun.l.google.com:19302'},
+    {url:'stun:stun1.l.google.com:19302'},
+    {url:'stun:stun2.l.google.com:19302'},
+    {url:'stun:stun3.l.google.com:19302'},
+    {url:'stun:stun4.l.google.com:19302'},
+    {url:'stun:stunserver.org'},
+    {url:'stun:stun.softjoys.com'},
+    {url:'stun:stun.voiparound.com'},
+    {url:'stun:stun.voipbuster.com'},
+    {url:'stun:stun.voipstunt.com'},
+    {url:'stun:stun.voxgratia.org'},
+    {url:'stun:stun.xten.com'},
+    {
+      url: 'turn:numb.viagenie.ca',
+      credential: 'muazkh',
+      username: 'webrtc@live.com'
+    },
+    {
+      url: 'turn:192.158.29.39:3478?transport=udp',
+      credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+      username: '28224511:1379330808'
+    },
+    {
+      url: 'turn:192.158.29.39:3478?transport=tcp',
+      credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+      username: '28224511:1379330808'
+    }
   ]} /* Sample servers, please use appropriate ones */
 })
 const myVideo = document.createElement('video')
