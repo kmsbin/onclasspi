@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+// require('dotenv').config({path: path.resolve(__dirname, '.env')});
+
 
 const app = express();
 
@@ -22,14 +24,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(bodyParser.text());
 app.set('view engine', 'html');
-app.set('X-Content-Type-Options', 'nosniff')
+
+app.use(session({
+  secure: true,
+  secret: 'onclass',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {maxAge: 2*60*1000}
+})
+
+)
+
 app.use(cors())
 app.use('/', routes);
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-  });
+
+
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {
       socket.join(roomId)
@@ -43,7 +52,7 @@ io.on('connection', socket => {
 
 
 
-const server = serv.listen(process.env.PORT, () => {
+const server = serv.listen(8080, () => {
     const host = server.address().address;
     const port = server.address().port;
 

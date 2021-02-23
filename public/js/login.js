@@ -5,7 +5,6 @@ document.getElementById('register').addEventListener('click', () => {
 document.getElementById('login').addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-
     authUser(email, password);
 });
 
@@ -25,7 +24,7 @@ async function authUser(email, password) {
             if (response['code'] == 0) {
 
             } else if (response['code'] == 1) {
-                window.location.href = '/codigo-turma';
+                window.location.href = '/logado-professor';
             }
 
         });

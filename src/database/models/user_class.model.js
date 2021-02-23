@@ -1,7 +1,25 @@
 module.exports = (sequelize, DataType) => {
     const UserClassModel = sequelize.define('usuarios_turmas', {
-        'usuarioId': DataType.INTEGER,
-        'turmaId': DataType.INTEGER
+        'usuarioId':{
+            type: DataType.INTEGER,
+            constraint: false,
+            primaryKey: false,
+            unique: false,
+        },
+        'turmaCodigo': {
+            type: DataType.STRING,
+            constraint: false,
+            primaryKey: false,
+            unique: false,
+            // references: {
+            //     model: 'turmas',
+            //     key: 'codigo'
+            //   },
+            onDelete: 'NO ACTION',
+            allowNull: false,
+            
+            // unique: true,
+        },
     });
 
     return UserClassModel;

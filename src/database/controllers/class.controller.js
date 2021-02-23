@@ -3,23 +3,32 @@ const db = require('../database');
 exports.createClass = (clas) => {
     db.class.create({
             'disciplina': clas.disciplina,
-            'userId': clas.user_id
+            'usuarioId': clas.user_id,
+            'turma': clas.turma,
+            'codigo': clas.codigo
         })
         .then((clas) => {
             console.log(">> Created class: " + JSON.stringify(clas, null, 4));
-            return user;
+            return clas;
         })
         .catch((err) => {
             console.log(">> Error while creating class: ", err);
         });
 };
 
-exports.getClassById = (clas) => {
+exports.getClassById = (userId) => {
     return db.class.findAll({
         where: {
-            id: clas.id,
+            usuarioId: userId,
         },
-        include: ['usuarios']
+        include: ['usuarios'],
+    });
+}
+exports.getClassByCode = (code) => {
+    return db.class.findAll({
+        where: {
+            codigo: code,
+        },
     });
 }
 
