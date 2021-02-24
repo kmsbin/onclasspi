@@ -1,10 +1,7 @@
 const Sequelize = require('sequelize');
 require('dotenv').config()
 
-const sequelize = new Sequelize('onclass', 'pimatheus', 'onclass', {
-    host: 'localhost',
-    dialect: 'postgres'
-});
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 const db = {};
 
@@ -45,6 +42,7 @@ db.users.belongsToMany(db.class, {
 //     foreignKey: 'turmaCodigo', 
 //     otherKey: 'codigo' 
 // });
+
 
 
 db.question.hasMany(db.answer, { as: 'respostas' });

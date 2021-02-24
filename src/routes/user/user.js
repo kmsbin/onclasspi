@@ -22,7 +22,12 @@ app.post('/code-verify', async (req, res)=>{
         });
     }
     controller.user_class.enterClass(userData)
-    res.send({ status: 'SUCCESS' });
+    return res.json({
+        isAdm: isAdm,
+        message: 'Login realizado com sucesso!',
+        code: 1,
+    });
+    // res.send({ status: 'SUCCESS' });
 
     // const response = await controller.users.getUserByEmail({ email: email });
 
@@ -32,6 +37,51 @@ app.post('/code-verify', async (req, res)=>{
     //         code: 0
     //     });
     // }
+});
+
+app.post('/create-test', async(req, res)=>{
+    const { test, code, name } = req.body;
+
+    const responseClass = await controller.class.getClassByCode(code);
+    const turmaId = responseClass[0].id;
+
+    if (!responseClass.length > 0 ) {
+        return res.send({
+            message: "codigo não existe",
+            status: 404
+        })
+    }
+    console.log("class id: "+turmaId);
+
+    let resp = await controller.test.createTest({
+        name: name,
+        turmaId: turmaId
+    })
+    
+    console.log("\n\n resp: "+JSON.stringify(resp) )
+    
+    test.forEach(async quest => {
+        
+        const resultQuest  = await controller.test.createQuestion({
+            conteudo: quest.question,
+            provaId: resp.id,
+            tipo: true,
+        })
+        quest.alternatives.forEach(async alternative =>{
+            const resultAlternatives = await controller.test.createAlternatives({
+                conteudo: alternative,
+                questoId: resultQuest.id,
+            }) 
+
+        })
+        controller.test.createAnswer({
+            conteudo: quest.answer,
+            questoId: resultQuest.id,
+        })
+        console.log("resultado: "+resultQuest.id)
+
+    });
+
 });
 
 app.post('/create-class', async(req, res) => {
@@ -83,6 +133,7 @@ app.post('/auth', async(req, res) => {
         req.session.isAdm = isAdm;
 
         return res.json({
+            isAdm: isAdm,
             message: 'Login realizado com sucesso!',
             code: 1,
         });

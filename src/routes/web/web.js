@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 const { v4: uuidV4 } = require('uuid')
 var http = require('http');
+const test = require('../../database/controllers/test.controller')
 const db = require('../../database/controllers/class.controller');
 const class_user  = require('../../database/controllers/user.class');
 const user  = require('../../database/controllers/class.controller');
@@ -18,6 +19,7 @@ const sessionValidate = (req, res, next)=>{
     }
     next();
 }
+
 
 app.use(express.static(path.join(__dirname, '/../../../public')));
 app.engine('.hbs', handlebars({ 
@@ -49,6 +51,10 @@ app.get('/cadastro', (req, res) => {
     return res.render('cadastro');
 });
 app.get('/',sessionValidate , (req, res) => {
+    if (req.session.isAdm) {
+        res.redirect('logado-aluno')
+        return
+    }
     return res.render('codigo_turma', {login_status : true});
 });
 
@@ -66,9 +72,10 @@ app.get('/codigo-turma', sessionValidate, (req, res) => {
 });
 
 app.get('/logado-aluno', sessionValidate, async (req, res) => {
+    if(!req.session.isAdm){
 
-    let classList = await class_user.getClassByUserId(Number(req.session.uid ));
-    let list = [];
+        let classList = await class_user.getClassByUserId(Number(req.session.uid ));
+        let list = [];
     console.log('\n\n\n classList: '+ typeof classList)
     classList.map(async item => {
         
@@ -93,17 +100,24 @@ app.get('/logado-aluno', sessionValidate, async (req, res) => {
     }
     console.log("logado aluno empty class: "+classList)
     return res.render('logado_aluno_empty');
+    } else {
+        res.redirect('logado-professor')
+    }
 });
 
 
 app.get('/logado-professor/', sessionValidate, async (req, res) => {
+    if(req.session.isAdm){
+
     let classList = await db.getClassById(Number(req.session.uid));
 
     if(!classList.lenght > 0){
         return res.render('logado_professor', {classList: classList});
     }
     return res.render('logado_professor');
-
+    }else{
+        res.redirect('/logado-aluno')
+    }
 
 });
 
@@ -115,20 +129,21 @@ app.get('/logado', sessionValidate, (req, res) => {
 app.get('/sala-aluno/code/:code', sessionValidate, async (req, res) => {
     const code = req.params.code;
     console.log("print code: "+code);
-    const classList = await class_user.getClassByCode(code)
-    let list = [];
-    
-    classList.map(async item => {        
-        list.push({
-            disciplina:item.disciplina,
-            usuarioId:item.usuarioId,
-            turma:item.turma,
-            codigo:item.codigo,
-        })
+    const classCode = await db.getClassByCode(code);
+    const classList = await class_user.getClassByUserAndCode({
+        user_id: req.session.uid,
+        codigo: code,
+    })
+    if (classList.length > 0) {
+    const respTest = await test.getTestById(classCode[0].id)
+    respTest.forEach(clas => {
+        console.log('class: '+clas.id)
     });
+    // const provas = await 
+    // console.log("\n\n\nid: "+JSON.stringify(classCode[0].id))
 
-    if (list.length > 0) {
-        return res.render('sala_aluno');
+
+        return res.render('sala_aluno', {classList: respTest});
     }
 
     return res.json({
@@ -137,6 +152,9 @@ app.get('/sala-aluno/code/:code', sessionValidate, async (req, res) => {
     });});
 
 app.get('/sala-professor/code/:code', sessionValidate, async (req, res) => {
+    if(!req.session.isAdm){
+        return res.redirect('logado-aluno')
+    }
     const code = req.params.code;
     console.log("print code: "+code);
     const classList = await user.getClassByCode(code)
@@ -159,10 +177,9 @@ app.get('/sala-professor/code/:code', sessionValidate, async (req, res) => {
 
     });
 
-    console.log("\n\n typeof: "+list.length);
 
     if(list.length>0){
-        return res.render('sala_professor');
+        return res.render('sala_professor', {code: code});
     }
     return res.json({
         status_code: 404,
@@ -179,8 +196,38 @@ app.get('/video', sessionValidate, (req, res) => {
     return res.render('video');
 });
 
-app.get('/prova', sessionValidate, (req, res) => {
-    return res.render('prova');
+app.get('/prova/:nome/:prova', sessionValidate, async (req, res) => {
+    const provaId = req.params.prova;
+    const testName = req.params.nome;
+
+    let questionList = [];
+    let provas = await test.getQuestByTestId(provaId)
+    console.log("\n\n prova: "+provas[0].nome)
+    let promisses = provas.map(async quests => {
+        // quests.forEach(async () => {
+        let finalQuest ={
+            question: quests.conteudo,
+            answer: quests.resposta,
+            alternatives: []
+        }
+
+        let alterResp = await test.getAlternativesByQuestId(quests.id)
+        
+        // console.log("minha pergunta: "+alterResp)
+        alterResp.forEach((item)=>{
+            finalQuest.alternatives.push(item.conteudo)
+            // console.log("\n"+item.conteudo+"\n")
+        })
+        questionList.push(finalQuest)
+        // console.log("\n\nfinal response: "+ JSON.stringify(finalQuest))
+        
+        // })
+        
+    })
+    await Promise.all(promisses)
+    console.log("\n\nfinal response: "+ JSON.stringify(questionList))
+    
+    return res.render('prova', {questionList: questionList, tesName: testName});
 });
 // app.get('/video-stream', (req, res) => {
 

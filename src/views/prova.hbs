@@ -9,69 +9,31 @@
 </head>
 <body>
     <header class="top">
-        <input type="image" src="/imagens/logo.svg">
-        <input class="logout" type="image" src="/imagens/logout.svg">
+        <input type="image" src="/assets/images/logo.svg">
+        <input class="logout" type="image" src="/assets/images/logout.svg">
     </header>
     <main>
         <input type="button" value="Enviar" class="finish">
 
         <div class="prova">
-            <h1>Nome Prova</h1>
+            <h1>{{tesName}}</h1>
+            {{#each questionList}}
             <div class="questao alternativa">
                 <div class="pergunta">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iusto doloribus dasdjasudiuah iuhiuvn uia s dnf jdnfida</h3>
+                    <h3>{{question}}</h3>
                 </div>
                 <div class="alternativas">
+                    {{#each alternatives}}
+                    
                     <div class="alternativa">
-                        <input type="checkbox" id="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aut, autem quis animi perferendis</p>
+                        <input type="checkbox" class="switchs">
+                        <p>{{this}}</p>
                     </div>
-                    <div class="alternativa">
-                        <input type="checkbox" id="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aut, autem quis animi perferendis</p>
-                    </div>
-                    <div class="alternativa">
-                        <input type="checkbox" id="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aut, autem quis animi perferendis</p>
-                    </div>
-                    <div class="alternativa">
-                        <input type="checkbox" id="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti aut, autem quis animi perferendis</p>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
-            <div class="questao resposta">
-                <div class="pergunta">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iusto doloribus dasdjasudiuah iuhiuvn uia s dnf jdnfida</h3>
-                </div>
-                <div class="texto">
-                    <textarea placeholder="Digite sua resposta"></textarea>
-                </div>
-            </div>
-            <div class="questao resposta">
-                <div class="pergunta">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iusto doloribus dasdjasudiuah iuhiuvn uia s dnf jdnfida</h3>
-                </div>
-                <div class="texto">
-                    <textarea placeholder="Digite sua resposta"></textarea>
-                </div>
-            </div>
-            <div class="questao resposta">
-                <div class="pergunta">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iusto doloribus dasdjasudiuah iuhiuvn uia s dnf jdnfida</h3>
-                </div>
-                <div class="texto">
-                    <textarea placeholder="Digite sua resposta"></textarea>
-                </div>
-            </div>
-            <div class="questao resposta">
-                <div class="pergunta">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iusto doloribus dasdjasudiuah iuhiuvn uia s dnf jdnfida</h3>
-                </div>
-                <div class="texto">
-                    <textarea placeholder="Digite sua resposta"></textarea>
-                </div>
-            </div>
+            {{/each}}
+            
         </div>
     </main>
     <footer class="bottom">

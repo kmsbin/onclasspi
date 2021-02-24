@@ -52,11 +52,11 @@ io.on('connection', socket => {
 
 
 
-const server = serv.listen(8080, () => {
+const server = serv.listen(process.env.PORT, () => {
     const host = server.address().address;
     const port = server.address().port;
 
-    // db.sequelize.sync({ force: true });
+    db.sequelize.sync({ force: true });
 
     console.log(`Server listening at https://${host}:${port}`);
 });

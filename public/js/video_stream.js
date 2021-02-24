@@ -1,6 +1,14 @@
 const socket = io('/')
 var a_random_id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
 const videoGrid = document.getElementById('video-grid')
+const getOutRoom = document.querySelector('#stopvideo')
+
+
+
+getOutRoom.addEventListener('click', ()=>{
+  window.location.href = '/logado-aluno';
+})
+
 const myPeer = new Peer({
   config: {'iceServers': [
     {url:'stun:stun01.sipphone.com'},

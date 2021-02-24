@@ -1,6 +1,6 @@
 .prova{
     width: 60%;
-    height: 70%;
+    height: 95%;
     background: #BEBEBE;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,12 @@
 }
 .alternativas{
     display: flex;
+    align-items:flex-start;
     flex-direction: column;
+    width: 80%;
+}
+input.switchs {
+    margin-right: 5px;
 }
 .alternativa{
     margin:10px;

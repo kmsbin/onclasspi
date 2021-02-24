@@ -9,7 +9,7 @@ exports.createUser = (user) => {
             'password_salt': user.password_salt
         })
         .then((user) => {
-            console.log(">> Created user: " + JSON.stringify(user, null, 4));
+            // console.log(">> Created user: " + JSON.stringify(user, null, 4));
             return user;
         })
         .catch((err) => {

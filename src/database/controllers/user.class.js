@@ -24,13 +24,12 @@ exports.getClassByUserId = (userClass) => {
 }
 
 exports.getClassByUserAndCode = (userClass) => {
-    console.log("\n\n\n\n userClass:  "+userClass.user_id )
     return db.user_class.findAll({
         where: {
             usuarioId: userClass.user_id,
             turmaCodigo: userClass.codigo,
         },
-        include: ['usuario', 'turma'],
+        include: ['usuarios', 'turmas'],
     });
 }
 exports.getClassByCode = (userClass) =>{  

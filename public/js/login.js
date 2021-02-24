@@ -24,7 +24,11 @@ async function authUser(email, password) {
             if (response['code'] == 0) {
 
             } else if (response['code'] == 1) {
-                window.location.href = '/logado-professor';
+                if(response['isAdm']){
+                    window.location.href = '/logado-professor';
+                }else{
+                    window.location.href = '/logado-aluno';
+                }
             }
 
         });

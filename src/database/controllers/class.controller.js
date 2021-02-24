@@ -29,6 +29,7 @@ exports.getClassByCode = (code) => {
         where: {
             codigo: code,
         },
+        // include: ['usuarios'],
     });
 }
 

@@ -1,6 +1,9 @@
 module.exports = (sequelize, DataType) => {
     const TestModel = sequelize.define('provas', {
-        'data': DataType.DATE,
+        'data': {
+            type: DataType.DATE,
+            allowNull: true,
+        },
         'nome': DataType.STRING,
         'turmaId': DataType.INTEGER
     });
