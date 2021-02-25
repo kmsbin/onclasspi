@@ -154,6 +154,9 @@ app.get('/logout', (req, res) => {
     req.session.uid = false;
     req.session.email = false;
     req.session.isAdm = false;
+    req.session.destroy();
+    req.session = null; 
+   
 
     // res.redirect('../logado-aluno');
 

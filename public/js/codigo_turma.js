@@ -30,7 +30,7 @@ document.querySelector('input.entrar').addEventListener('click', async()=>{
             })
         }).then((response)=>{response.json()});
     }
-
+    window.location.href = '/logado-aluno'
 })
 
 // async function searchCode(uuidQuery) {

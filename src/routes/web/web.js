@@ -137,7 +137,7 @@ app.get('/sala-aluno/code/:code', sessionValidate, async (req, res) => {
     // console.log("\n\n\nid: "+JSON.stringify(classCode[0].id))
 
 
-        return res.render('sala_aluno', {classList: respTest});
+        return res.render('sala_aluno', {classList: respTest, code: code});
     }
 
     return res.json({

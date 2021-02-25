@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
 require('dotenv').config()
 
-const sequelize = new Sequelize(
-    'onclass', 'root', 'ninos1s2314', {
+const sequelize = new Sequelize('onclass', 'pimatheus', 'onclass', {
     host: 'localhost',
-    dialect:  'mysql'});
+    dialect: 'postgres'
+});
 
 const db = {};
 
@@ -34,12 +34,12 @@ db.user_class = require('./models/user_class.model')(sequelize, Sequelize);
 // // db.class.hasMany(db.user_class, { as: 'usuario_triam' });
 // db.user_class.hasMany(db.class, {as: 'class'});
 // db.user_class.hasMany(db.users, {as: 'user'});
-db.users.belongsToMany(db.class, {
-    through: db.user_class, 
-    foreignKey: 'turmaCodigo', 
-    targetKey: 'codigo',
-    as: 'asdgsd'  
-});
+// db.users.belongsToMany(db.class, {
+//     through: db.user_class, 
+//     foreignKey: 'turmaCodigo', 
+//     targetKey: 'codigo',
+//     as: 'asdgsd'  
+// });
 // db.class.belongsToMany(db.users, {
 //     through: db.user_class, 
 //     foreignKey: 'turmaCodigo', 

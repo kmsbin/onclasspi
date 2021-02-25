@@ -5,16 +5,20 @@ module.exports = (sequelize, DataType) => {
             constraint: false,
             primaryKey: false,
             unique: false,
+            references: {
+                model: 'usuarios',
+                key: 'id'
+              },
         },
         'turmaCodigo': {
             type: DataType.STRING,
             constraint: false,
             primaryKey: false,
             unique: false,
-            // references: {
-            //     model: 'turmas',
-            //     key: 'codigo'
-            //   },
+            references: {
+                model: 'turmas',
+                key: 'codigo'
+              },
             onDelete: 'NO ACTION',
             allowNull: false,
             

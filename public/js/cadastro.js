@@ -33,7 +33,11 @@ async function createUser(email, name, teacher, password) {
             <label for="register" style="align-self: center; color: red;">Email ou senha incorretos</label>                
             `;
             } else if (response['status_code'] == 200) {
-                window.location.href = '/';
+                setTimeout(function(){ 
+                    alert("Hello"); 
+                    window.location.href = '/logado-aluno';
+                }, 500);
+
             }
 
         });
