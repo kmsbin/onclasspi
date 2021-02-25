@@ -26,6 +26,7 @@ exports.getTestById = async (id) => {
     });
 }
 
+
 exports.getQuestByTestId = async (id) =>{
     return await db.question.findAll({
         where: {

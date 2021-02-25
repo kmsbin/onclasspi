@@ -1,7 +1,10 @@
 const Sequelize = require('sequelize');
 require('dotenv').config()
 
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = new Sequelize(
+    'onclass', 'root', 'ninos1s2314', {
+    host: 'localhost',
+    dialect:  'mysql'});
 
 const db = {};
 
@@ -74,5 +77,4 @@ sequelize.authenticate().then(() => {
 }).catch((err) => {
     console.log('Connection failed!:', err)
 });
-
 module.exports = db;

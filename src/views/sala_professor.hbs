@@ -6,13 +6,16 @@
     <title>OnClass</title>
     <link rel="stylesheet" href="/css/sala_professor.css">
     <link rel="stylesheet" href="/css/all.css">
+    <script defer src="/js/logout.js"></script>
     <script defer src="/js/sala_professor.js"> </script>
     <script>const code = '{{code}}'</script>
 
 </head>
 <body>
     <header class="top">
+        <a href="/">
         <input type="image" src="/assets/images/logo.svg">
+        </a>
         <h1>código da turma {{code}}</h1>
         <a href="/">
             <input class="logout" type="image" src="/assets/images/logout.svg">
@@ -72,42 +75,15 @@
             <input id="prova" type="button">
         </div>
         <div class="sala">
-            <div class="materiais">
-                <div class="Video">
-                    <div class="nome">
-                        Video aula sobre como fazer um documento
-                    </div>
-                    <div class="tempo">
-                        1:54:02
-                    </div>
-                </div>
-            </div>
-            <div class="linha"></div>
             <div class="Listaprovas">
+                {{#each provas}}
                 <div class="prova">
                     <div class="nome">
-                        HTML conhecimentos básicos
+                        {{nome}}
                     </div>
-                    <div class="data">
-                        13/12/2020
-                    </div>
+                    <input type="button" class="baixar">
                 </div>
-                <div class="prova">
-                    <div class="nome">
-                        HTML conhecimentos básicos
-                    </div>
-                    <div class="data">
-                        13/12/2020
-                    </div>
-                </div>
-                <div class="prova">
-                    <div class="nome">
-                        HTML conhecimentos básicos
-                    </div>
-                    <div class="data">
-                        13/12/2020
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </main>

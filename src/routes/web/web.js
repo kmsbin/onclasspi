@@ -13,7 +13,7 @@ var serv = http.createServer(app)
 var io  = require('socket.io')(http).listen(serv);
 
 const sessionValidate = (req, res, next)=>{
-    if (!req.session?.loggedin) {
+    if (!req.session.loggedin) {
         res.redirect('/login');
         return
     }
@@ -78,7 +78,7 @@ app.get('/logado-aluno', sessionValidate, async (req, res) => {
         let list = [];
     console.log('\n\n\n classList: '+ typeof classList)
     classList.map(async item => {
-        
+
         let response = await user.getClassByCode(item.turmaCodigo)
 
         console.log("\n\nreponse: "+response[0].disciplina)
@@ -108,22 +108,16 @@ app.get('/logado-aluno', sessionValidate, async (req, res) => {
 
 app.get('/logado-professor/', sessionValidate, async (req, res) => {
     if(req.session.isAdm){
-
     let classList = await db.getClassById(Number(req.session.uid));
 
     if(!classList.lenght > 0){
-        return res.render('logado_professor', {classList: classList});
+        return res.render('logado_professor', {classList: classList, username: req.session.username.toUpperCase()});
     }
     return res.render('logado_professor');
     }else{
         res.redirect('/logado-aluno')
     }
 
-});
-
-app.get('/logado', sessionValidate, (req, res) => {
-
-    return res.render('logado');
 });
 
 app.get('/sala-aluno/code/:code', sessionValidate, async (req, res) => {
@@ -156,7 +150,10 @@ app.get('/sala-professor/code/:code', sessionValidate, async (req, res) => {
         return res.redirect('logado-aluno')
     }
     const code = req.params.code;
-    console.log("print code: "+code);
+    let clas = await db.getClassByCode(code);
+    console.log("\n\nprint clas: "+JSON.stringify(clas));
+    
+    let provas = await test.getTestById(clas[0].id);
     const classList = await user.getClassByCode(code)
     let list = [];
     
@@ -179,7 +176,7 @@ app.get('/sala-professor/code/:code', sessionValidate, async (req, res) => {
 
 
     if(list.length>0){
-        return res.render('sala_professor', {code: code});
+        return res.render('sala_professor', {code: code, provas: provas});
     }
     return res.json({
         status_code: 404,
@@ -187,10 +184,6 @@ app.get('/sala-professor/code/:code', sessionValidate, async (req, res) => {
     });
 });
 
-
-app.get('/sala', sessionValidate, (req, res) => {
-    return res.render('sala');
-});
 
 app.get('/video', sessionValidate, (req, res) => {
     return res.render('video');
@@ -202,7 +195,6 @@ app.get('/prova/:nome/:prova', sessionValidate, async (req, res) => {
 
     let questionList = [];
     let provas = await test.getQuestByTestId(provaId)
-    console.log("\n\n prova: "+provas[0].nome)
     let promisses = provas.map(async quests => {
         // quests.forEach(async () => {
         let finalQuest ={

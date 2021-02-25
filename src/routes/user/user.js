@@ -145,8 +145,17 @@ app.post('/auth', async(req, res) => {
     }
 });
 
-app.post('/logout', (req, res) => {
+app.get('/logout', (req, res) => {
+    if(!req.session.loggedin){
+        return
+    }
     req.session.loggedin = false;
+    req.session.username = false;
+    req.session.uid = false;
+    req.session.email = false;
+    req.session.isAdm = false;
+
+    // res.redirect('../logado-aluno');
 
     return res.json({
         code: 1,
